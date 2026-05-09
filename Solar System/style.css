@@ -1,0 +1,228 @@
+body {
+    background-color: #050505;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Yıldız efekti için ekstra katman */
+body::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        10vw 20vh 1px white, 30vw 50vh 2px white, 70vw 10vh 1px white, 
+        85vw 80vh 1px white, 40vw 90vh 2px white, 15vw 70vh 1px white,
+        60vw 40vh 1px white, 25vw 10vh 2px white, 90vw 30vh 1px white,
+        50vw 50vh 1px white, 10vw 80vh 2px white, 80vw 20vh 1px white;
+    opacity: 0.5;
+    animation: twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 0.7; }
+}
+
+.solar-system {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle,#ffcc00, #ff8800);
+    border-radius: 50%;
+    box-shadow: 0 0 40px #ff8800;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.25); /* Belirginlik hafif artırıldı */
+    border-radius: 50%;
+    animation: rotate linear infinite;
+    pointer-events: none; /* Orta boşluğun hover'ı engellememesi için */
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 20;
+    pointer-events: auto; /* Gezegenler tıklanabilir kalsın */
+    transition: filter 0.3s, box-shadow 0.3s;
+}
+
+/* Orbits Sizes & Durations - Neptün'ün sığması için küçültüldü */
+.mercury-orbit { width: 70px; height: 70px; animation-duration: 3s; z-index: 90; }
+.venus-orbit   { width: 120px; height: 120px; animation-duration: 7s; z-index: 80; }
+.earth-orbit   { width: 190px; height: 190px; animation-duration: 12s; z-index: 70; }
+.mars-orbit    { width: 270px; height: 270px; animation-duration: 18s; z-index: 60; }
+.jupiter-orbit { width: 400px; height: 400px; animation-duration: 30s; z-index: 50; }
+.saturn-orbit  { width: 520px; height: 520px; animation-duration: 45s; z-index: 40; }
+.uranus-orbit  { width: 630px; height: 630px; animation-duration: 60s; z-index: 30; }
+.neptune-orbit { width: 740px; height: 740px; animation-duration: 80s; z-index: 20; }
+
+/* Planet Styles */
+.mercury {
+    width: 8px; height: 8px;
+    background: radial-gradient(circle, #a5a5a5, #5e5e5e);
+}
+.venus {
+    width: 14px; height: 14px;
+    background: radial-gradient(circle, #e3bb76, #a17a3a);
+}
+.earth {
+    width: 16px; height: 16px;
+    background: radial-gradient(circle at 35% 35%, #55ee66 10%, #22bb44 25%, #2277ff 50%, #1155cc 100%);
+    box-shadow: 0 0 8px #2277ff;
+    position: relative; /* Ay'ın referansı için */
+    overflow: visible; /* Ay dışarı taşabilsin */
+}
+.mars {
+    width: 12px; height: 12px;
+    background: radial-gradient(circle, #ff6633, #993311);
+}
+.jupiter {
+    width: 36px; height: 36px;
+    background: radial-gradient(circle, #d39c7e, #90614d, #5a3e31);
+}
+.saturn {
+    width: 30px; height: 30px;
+    background: radial-gradient(circle, #e0cda1, #b19d6e);
+}
+/* Saturn'un halkası için pseudo-element */
+.saturn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 10px;
+    border: 4px solid rgba(193, 172, 123, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+}
+.uranus {
+    width: 22px; height: 22px;
+    background: radial-gradient(circle, #bde3e3, #6fa9a9);
+}
+.neptune {
+    width: 22px; height: 22px;
+    background: radial-gradient(circle, #4b70dd, #21328a);
+}
+
+/* Ay ve Yörüngesi */
+.moon-orbit {
+    position: absolute;
+    width: 28px; /* Daha kompakt */
+    height: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate linear infinite;
+    animation-duration: 3s;
+    z-index: 10;
+}
+
+.moon {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px white;
+}
+
+/* Asteroit Kuşağı - Yeni mesafelere göre ayarlandı */
+.asteroid-belt {
+    position: absolute;
+    width: 335px;
+    height: 335px;
+    border: 25px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 55;
+    pointer-events: none;
+    border-style: double;
+}
+
+.planet-name {
+    position: absolute;
+    bottom: 130%; /* Üste taşındı (Güneş'e çarpmaması için) */
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px; /* Biraz küçültüldü */
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 3px 10px;
+    pointer-events: none;
+    white-space: nowrap;
+    border-radius: 20px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.sun .planet-name {
+    top: 120%; /* Güneş ismi hala altta kalabilir */
+    bottom: auto;
+}
+
+.planet:hover {
+    filter: brightness(1.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.planet:hover .planet-name,
+.sun:hover .planet-name {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
