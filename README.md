@@ -3,11 +3,6 @@
 
 This project is a fully responsive and interactive 2D Solar System simulation built using HTML5, CSS3, and Vanilla JavaScript. The orbital speeds and sizes of the planets have been scaled based on near-realistic proportions to maintain visual harmony and aesthetic balance.
 
-## 🚀 Live Demo
-Check out the live version of the project here: **[Insert Your Live Preview Link Here]**
-
----
-
 ## ✨ Features
 
 * **Visual Effects:** A dynamic stellar background featuring a custom `twinkle` animation and a beautifully detailed asteroid belt.
