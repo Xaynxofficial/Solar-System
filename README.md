@@ -1,8 +1,4 @@
-İşte GitHub repon için hazırladığım, projenin tüm detaylarını ve yazdığın akıllı JS mekanizmasını en iyi şekilde yansıtan İngilizce README.md içeriği.
 
-Bunu direkt kopyalayıp dosyana yapıştırabilirsin:
-
-Markdown
 # 🌌 CSS & JS Solar System Simulation
 
 This project is a fully responsive and interactive 2D Solar System simulation built using HTML5, CSS3, and Vanilla JavaScript. The orbital speeds and sizes of the planets have been scaled based on near-realistic proportions to maintain visual harmony and aesthetic balance.
