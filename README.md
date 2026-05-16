@@ -33,7 +33,7 @@ Check out the live version of the project here: **[Insert Your Live Preview Link
 
 ## 📸 Screenshot
 
-![Solar System Preview](https://r.resimlink.com/xSmhXkR.png) *(Feel free to replace this with an actual screenshot of your project)*
+![Solar System Preview](https://r.resimlink.com/xSmhXkR.png)
 
 ---
 
